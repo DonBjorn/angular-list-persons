@@ -2,33 +2,27 @@
   <div>
     <h3>{{ title }}</h3>
   </div>
-
   <hr>
 
-  <form class="form-row" (submit)="addPerson()">
-    <div class="form-group col-md-2">
-      <label for="name" class="sr-only">Nombre</label>
-      <input type="text" name="name" id="name" placeholder="Nombre" class="form-control" [(ngModel)]="nameInput">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="last_name" class="sr-only">Apellido</label>
-      <input type="text" name="last_name" id="last_name" placeholder="Apellido" class="form-control" [(ngModel)]="lastNameInput">
-    </div>
-    <div class="col">
-      <button type="submit" class="btn btn-primary">
-        Registrar
-      </button>
-    </div>
-  </form>
+  <app-person-form
+    (personCreated)="personAdd($event)"
+  ></app-person-form>
 
 </div>
 
-<div class="container">
+<div class="container" *ngIf="persons.length > 0">
+  <hr>
   <div class="row">
     <div class="col">
-      <div *ngFor="let person of persons ; let i = index">
-        {{ i + 1 }} = {{ person.name }} {{ person.lastName}}
-      </div>
+      <app-person
+        *ngFor="
+        let person of persons ;
+        let i = index"
+        [person]="person"
+        [index]="i"
+      ></app-person>
     </div>
   </div>
 </div>
+
+
