@@ -1,28 +1,8 @@
-<div class="container">
-  <div>
-    <h3>{{ title }}</h3>
-  </div>
-  <hr>
-
-  <app-person-form
-    (personCreated)="personAdd($event)"
-  ></app-person-form>
-
+<div class="box" id="heading">
+  <h1>{{ title }}</h1>
 </div>
+<app-persons
 
-<div class="container" *ngIf="persons.length > 0">
-  <hr>
-  <div class="row">
-    <div class="col">
-      <app-person
-        *ngFor="
-        let person of persons ;
-        let i = index"
-        [person]="person"
-        [index]="i"
-      ></app-person>
-    </div>
-  </div>
-</div>
+></app-persons>
 
 

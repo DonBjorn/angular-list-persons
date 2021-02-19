@@ -1,0 +1,19 @@
+<div class="box" *ngIf="persons.length > 0">
+  <hr>
+  <div class="row">
+    <div class="col">
+      <app-person
+        *ngFor="
+        let person of persons ;
+        let i = index"
+        [person]="person"
+        [index]="i"
+      ></app-person>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <app-person-form
+  ></app-person-form>
+</div>
